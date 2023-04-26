@@ -56,6 +56,84 @@ img {
 	max-width: 100%;
 }
 
+h1 {
+   margin: 0;
+}
+
+.spacing{
+   padding: 0.75rem;
+}
+
+/* html * {
+	background: rgba(255, 0, 0, 0.1);
+	box-shadow: 0 0 0 1px red;
+} */
+
 /* Typography */
 
 /* Layout */
+
+/* navbar */
+nav {
+   display: flex;
+   background-color: var(--clr-nav-bg);
+}
+
+nav h2{
+   padding: 0.75em 2em;
+}
+
+nav h2:nth-child(1){
+   background-color: var(--clr-bg);
+}
+
+.content-container{
+   padding-left: 1em;
+   padding-right: 1em;
+}
+
+/* Header */
+header{
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
+   border-bottom: 3px solid var(--clr-line);
+   padding-top: 3em;
+}
+
+/* cards */
+main{
+   display: grid;
+}
+
+.card{
+   position: relative;
+   width: 320px;
+   height: 450px;
+   background: #fff;
+   border-radius: 20px;
+   box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+   overflow: hidden;
+}
+
+.card__poster{
+   position: relative;
+   overflow: hidden;
+}
+/* moving pu and down so prob absolute istead of grid 1/-1 */
+.card__poster img {
+   width: 100%;
+}
+
+
+<div class="card">
+   <div class="card__poster">
+      <img />
+   </div>
+   <div class="card__details">
+      <h3 class="card__details--title">Movie Title</h3>
+      <button>Watchlist</button>
+      <p class="card__details--director">Director</p>
+      <span class="card__details--year">year</span>
+   </div>
+</div>
