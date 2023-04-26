@@ -17,8 +17,8 @@
 	--fw-regular: 400;
 
 	--fs-large: 2.688em;
-	--fs-semi-large: 0.875em;
-	--fs-medium: 1.125em;
+	--fs-semi-large: 1.25em;
+	--fs-medium: 1em;
 	--fs-regualr: 0.75em;
 }
 
@@ -97,11 +97,18 @@ header p {
    color: var(--clr-text-gray);
 }
 
+.empty-message h3{
+   color: var(--clr-text-gray);
+}
+
 /* Button */
 .btn{
    background: transparent;
    color: var(--clr-primary);
    border: none;
+   cursor: pointer;
+
+   text-decoration: none;
 }
 
 /* Layout */
@@ -128,6 +135,7 @@ nav h2:nth-child(1) {
 /* Header */
 header {
 	display: flex;
+   flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: flex-end;
 	border-bottom: 3px solid var(--clr-line);
@@ -137,6 +145,9 @@ header {
 /* cards */
 main {
 	display: grid;
+
+   place-content: center;
+   min-height: 90vh;
 }
 
 .card {
@@ -244,4 +255,11 @@ main {
 
 .card__details__plot {
 	margin-top: 20px;
+}
+
+/* Empty messages */
+
+.empty-message{
+   opacity: 1;
+   text-align: center;
 }
