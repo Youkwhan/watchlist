@@ -71,6 +71,28 @@ h1 {
 
 /* Typography */
 
+h1{
+   font-weight: var(--fw-large);
+   font-size: var(--fs-large);
+}
+
+h2{
+   font-weight: var(--fw-semi-large);
+   font-size: var(--fs-semi-large);
+}
+
+h3{
+   font-weight: var(--fw-medium);
+   font-size: var(--fs-medium);
+}
+
+.rating,
+p {
+   font-weight: var(--fw-regular);
+   font-size: var(--fs-regualr);
+   text-align: center;
+}
+
 /* Layout */
 
 /* navbar */
@@ -110,7 +132,6 @@ main{
    position: relative;
    width: 320px;
    height: 450px;
-   background: #fff;
    border-radius: 20px;
    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
    overflow: hidden;
@@ -118,22 +139,99 @@ main{
 
 .card__poster{
    position: relative;
-   overflow: hidden;
+   /* overflow: hidden; */
 }
-/* moving pu and down so prob absolute istead of grid 1/-1 */
+
+.card__poster::before {
+   content: "";
+   position:absolute;
+   bottom: -180px;
+
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(0deg, var(--clr-secondary) 50%, transparent);
+   transition: 0.5s;
+   z-index: 1;
+}
+
+/* When card hovered, bring up card-poster::before (bg-shdaow) back up to original position */
+.card:hover .card__poster::before{
+   bottom: 0px;
+}
+
+
 .card__poster img {
    width: 100%;
+   transition: 0.5s;
 }
 
+.card:hover .card__poster img{
+   transform: translateY(-50px);
+   filter: blur(5px);
+}
 
-<div class="card">
-   <div class="card__poster">
-      <img />
+/* Default where card details should be position (which part hidden/showing) */
+.card__details{
+   position:absolute;
+   width: 100%;
+   bottom: 0;
+   left: 0;
+   padding: 20px;
+   z-index: 2;
+   transition: 0.5s;
+}
+
+/* When card hovered, bring up details */
+.card:hover .card__details{
+   bottom: 40px;
+}
+
+.card__details__header {
+   display: flex;
+   justify-content: flex-start;
+   align-items: baseline;
+}
+
+.card__details__header--title{
+   max-width: 180px;
+   padding-right: 0.5em;
+}
+
+.card__details__props {
+   margin-top: 5px;
+
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.card__details__props > * {
+   padding: 2px 5px;
+
+}
+.card__details__props > *:nth-child(3){
+   /* Maybe give each one a different background, class */
+   background-color: var(--clr-text-gray);
+   border-radius: 4px;
+}
+
+.card__details__plot{
+
+}
+
+<div class="card__details">
+   <div class="card__details__header">
+      <h3 class="card__details__header--title">Movie Title</h3>
+      <div class="rating">
+         <i class="fa-solid fa-star" style="color: #f7da59"></i>
+         <span>4/5</span>
+      </div>
    </div>
-   <div class="card__details">
-      <h3 class="card__details--title">Movie Title</h3>
+   <div class="card__details__props">
+      <p>time</p>
+      <p>genre</p>
+      <p class="card__details__props--director">Director</p>
+      <p class="card__details__props--year">year</p>
       <button>Watchlist</button>
-      <p class="card__details--director">Director</p>
-      <span class="card__details--year">year</span>
    </div>
+   <p>Details</p>
 </div>

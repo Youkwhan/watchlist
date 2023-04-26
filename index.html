@@ -44,15 +44,29 @@
 			</header>
 			<div class="spacing"></div>
 			<main>
+				<!-- dynamically render cards -->
 				<div class="card">
 					<div class="card__poster">
 						<img src="https://picsum.photos/200/300" />
 					</div>
 					<div class="card__details">
-						<h3 class="card__details--title">Movie Title</h3>
-						<button>Watchlist</button>
-						<p class="card__details--director">Director</p>
-						<span class="card__details--year">year</span>
+						<div class="card__details__header">
+							<h3 class="card__details__header--title">Movie Title</h3>
+							<div class="rating">
+								<i class="fa-solid fa-star" style="color: #f7da59"></i>
+								<span>4/5</span>
+							</div>
+						</div>
+						<div class="card__details__props">
+							<p class="card__details__props--director">Director</p>
+							<p class="card__details__props--year">year</p>
+							<p>genre</p>
+							<p>time</p>
+							<button>Watchlist</button>
+						</div>
+						<div class="card__details__plot">
+							<p>Details</p>
+						</div>
 					</div>
 				</div>
 			</main>
