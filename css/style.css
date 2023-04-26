@@ -1,0 +1,61 @@
+:root {
+	--ff-primary: "Inter", sans-serif;
+
+	--clr-bg: #171821;
+	--clr-nav-bg: #282a30;
+
+	--clr-primary: #fff;
+	--clr-secondary: #272831;
+	--clr-nav-gold: #f7da59;
+	--clr-text-gray: #818087;
+	--clr-text-accent: #d3af37;
+	--clr-line: #272831;
+
+	--fw-large: 800;
+	--fw-semi-large: 700;
+	--fw-medium: 500;
+	--fw-regular: 400;
+
+	--fs-large: 2.688em;
+	--fs-semi-large: 0.875em;
+	--fs-medium: 1.125em;
+	--fs-regualr: 0.75em;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	/* button and input inhert the font */
+	font: inherit;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--ff-primary);
+	background: var(--clr-bg);
+	color: var(--clr-primary);
+	line-height: 1.5;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+/* Typography */
+
+/* Layout */
