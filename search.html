@@ -26,30 +26,46 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/search.css" />
 	</head>
 	<body>
 		<nav>
-			<h2>
-				<i class="fa-solid fa-wand-sparkles" style="color: #f7da59"></i>
-			</h2>
-			<h2>
-				<i class="fa-solid fa-magnifying-glass" style="color: #fff"></i>
-				Search
-			</h2>
+			<a href="./index.html">
+				<h2>
+					<i class="fa-solid fa-wand-sparkles" style="color: #f7da59"></i>
+				</h2>
+			</a>
+			<a href="./search.html">
+				<h2>
+					<i class="fa-solid fa-magnifying-glass" style="color: #fff"></i>
+					Search
+				</h2>
+			</a>
 		</nav>
 		<div class="content-container">
 			<header>
-				<h1>Watchlist</h1>
-				<p>All your favorite movies in one place</p>
+				<h1>Find your film</h1>
+				<form id="search-bar" class="search-bar" onsubmit="return false">
+					
+					<input
+						type="text"
+						class="search-area"
+						id="search-area"
+						placeholder="Search for a movie"
+					/>
+					<button id="search-btn" class="search-btn" type="submit">
+						Search
+					</button>
+				</form>
 			</header>
 			<div class="spacing"></div>
 			<main>
 				<div class="empty-message">
-               <i class="fa-solid fa-film fa-2xl"></i>
-               <div class="spacing"></div>
+					<i class="fa-solid fa-film fa-2xl"></i>
+					<div class="spacing"></div>
 					<h3>Start Exploring</h3>
 				</div>
-            <!-- dynamically render grid cards -->
+				<!-- dynamically render grid cards -->
 			</main>
 		</div>
 
