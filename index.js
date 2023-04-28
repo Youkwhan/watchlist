@@ -70,5 +70,5 @@ function renderMovieCards(movieObjList) {
 			return movie.getMovieCardHTML();
 		})
 		.join("");
-	// searchGridContainerEl.innerHTML = movieStrList;
+	searchGridContainerEl.innerHTML = movieStrList;
 }

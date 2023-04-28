@@ -174,12 +174,18 @@ header {
 /* cards */
 main {
 	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	gap: 2rem;
+
+	justify-items: center;
 }
 
 .card {
 	position: relative;
-	width: 320px;
-	height: 450px;
+	/* min, max allows us to grow as grid grows to fill up the space, but limit how small ;) */
+	min-width: 20rem;
+	max-width: 25rem;
+	/* min-height: 28.125rem; */
 	border-radius: 20px;
 	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 	overflow: hidden;
@@ -209,6 +215,8 @@ main {
 
 .card__poster img {
 	width: 100%;
+	object-fit: cover;
+
 	transition: 0.5s;
 }
 
@@ -235,13 +243,12 @@ main {
 
 .card__details__header {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: baseline;
 }
 
 .card__details__header--title {
-	max-width: 180px;
-	padding-right: 0.5em;
+	min-width: 11.25em;
 }
 
 .card__details__props {
@@ -255,7 +262,7 @@ main {
 .card__details__props--group1,
 .card__details__props--group2,
 .card__details__props--group3 {
-	width: 60%;
+	/* width: 60%; */
 
 	display: flex;
 	justify-content: space-between;
@@ -265,13 +272,7 @@ main {
 .card__details__props--group2 > *,
 .card__details__props--group3 > * {
 	display: inline-block;
-	/* padding: 2px 5px; */
 }
-
-/* .card__details__props--group2 > *:nth-child(1) {
-	background-color: var(--clr-text-gray);
-	border-radius: 4px;
-} */
 
 .add-watchlist {
 	padding-top: 1em;
