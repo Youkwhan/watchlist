@@ -53,3 +53,4 @@ function getMovieList(searchList) {
 	return movieObjList;
 }
 
+// !!!!!!!!!!!!!! type="module" module scope so might need to change onclick to eventlistener!
