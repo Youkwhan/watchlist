@@ -45,27 +45,27 @@
 		<div class="content-container">
 			<header>
 				<h1>Find your film</h1>
-				<form id="search-bar" class="search-bar" onsubmit="getSearchBar(event)">
+				<form id="search-bar" class="search-bar" onsubmit="return false">
 					<input
 						type="text"
 						class="search-area"
 						id="search-area"
 						placeholder="Search for a movie"
 					/>
-					<button class="search-btn" type="submit">Search</button>
+					<button id="search-btn" class="search-btn" type="submit">Search</button>
 				</form>
 			</header>
 			<div class="spacing"></div>
-			<main>
+			<main id="search-grid-container">
 				<!-- dynamically render grid cards -->
 			</main>
+			<div id="empty-message" class="empty-message">
+				<i class="fa-solid fa-film fa-2xl"></i>
+				<div class="spacing"></div>
+				<h3>Start Exploring</h3>
+			</div>
 		</div>
 
-		<div class="empty-message">
-			<i class="fa-solid fa-film fa-2xl"></i>
-			<div class="spacing"></div>
-			<h3>Start Exploring</h3>
-		</div>
 		<script src="index.js" type="module"></script>
 	</body>
 </html>

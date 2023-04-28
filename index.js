@@ -17,6 +17,10 @@ Watchlist =>
 
 // API KEY .env?
 const apiKey = "e77d9300";
+const emptyMessageEl = document.getElementById("empty-message");
+const searchGridContainerEl = document.getElementById("search-grid-container");
+
+document.getElementById("search-btn").addEventListener("click", getSearchBar);
 
 // :void, GET search result from API call,
 async function getSearchBar(e) {
@@ -30,7 +34,10 @@ async function getSearchBar(e) {
 		console.log(data); //{Search: Array(5), totalResults: '5', Response: 'True'}
 
 		if (data.Response === "True") {
-			getMovieList(data.Search);
+			emptyMessageEl.style.opacity = 0;
+			// Let the promise resolve first before rendering
+			const movieObjList = await getMovieList(data.Search);
+			renderMovieCards(movieObjList);
 		} else {
 			console.log("ERROR response too many results");
 		}
@@ -40,17 +47,28 @@ async function getSearchBar(e) {
 }
 
 // :list[obj], Create new Object for each search result.
-function getMovieList(searchList) {
+async function getMovieList(searchList) {
 	// GET details of each individual search
-	const movieObjList = searchList.map(async (movie) => {
-		const res = await fetch(
-			`http://www.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`
-		);
-		const data = await res.json();
-		return new Movie(data);
-	});
-	console.log(movieObjList);
+	const movieObjList = await Promise.all(
+		searchList.map(async (movie) => {
+			const res = await fetch(
+				`http://www.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`
+			);
+			const data = await res.json();
+			return new Movie(data);
+		})
+	);
 	return movieObjList;
 }
 
-// !!!!!!!!!!!!!! type="module" module scope so might need to change onclick to eventlistener!
+// :void, Renders the cards onto the HTML
+function renderMovieCards(movieObjList) {
+	console.log(movieObjList);
+	const movieStrList = movieObjList
+		.map((movie) => {
+			console.log(movie.Title);
+			return movie.getMovieCardHTML();
+		})
+		.join("");
+	// searchGridContainerEl.innerHTML = movieStrList;
+}
