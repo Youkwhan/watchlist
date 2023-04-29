@@ -5,49 +5,48 @@ nav a:nth-child(2) {
 	background-color: var(--clr-bg);
 }
 
-.search-bar{
-   display: flex;
-   /* width: 40%; */
-   width: 35ch;
-   margin:0.5em 0;
-   border-radius: 20px;
+.search-bar {
+	display: flex;
+	/* width: 40%; */
+	width: 35ch;
+	margin: 0.5em 0;
+	border-radius: 20px;
 }
 
 .search-area,
 .search-btn {
-   font-weight: var(--fw-semi-large);
-   font-size: var(--fw-semi-large);
-   padding: 0.8em 1em;
-   border: none;
-   /* border: 1px solid var(--clr-text-gray); */
+	font-weight: var(--fw-semi-large);
+	font-size: var(--fw-semi-large);
+	padding: 0.8em 1em;
+	border: none;
+	/* border: 1px solid var(--clr-text-gray); */
 }
 
-.search-area{
-   /* width: 80%; */
-   flex-grow: 2;
-   border-top-left-radius: 20px;
-   border-bottom-left-radius: 20px;
+.search-area {
+	/* width: 80%; */
+	flex-grow: 2;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
 }
 
 /* remove input focus */
 .search-area:focus {
-   outline: none;
+	outline: none;
 }
 
 /* put focus on entire form */
 .search-bar:focus-within {
-   outline: 3px solid yellowgreen;
+	outline: 3px solid yellowgreen;
 }
 
-
-.search-btn{
-   flex-grow: 1;
-   cursor:pointer;
-   border-top-right-radius: 20px;
-   border-bottom-right-radius: 20px;
+.search-btn {
+	flex-grow: 1;
+	cursor: pointer;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
 }
 
 .search-btn:focus,
-.search-btn:hover{
-   background-color: yellowgreen;
+.search-btn:hover {
+	background-color: yellowgreen;
 }

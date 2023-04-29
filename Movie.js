@@ -42,6 +42,8 @@ class Movie {
          </div>
       `;
 	}
+
+   
 }
 
 export default Movie;
