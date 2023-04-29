@@ -116,8 +116,7 @@ header p {
 	text-decoration: none;
 }
 
-.btn:hover,
-.btn:focus {
+.btn:hover {
 	color: yellowgreen;
 }
 

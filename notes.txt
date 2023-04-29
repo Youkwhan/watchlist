@@ -1,0 +1,36 @@
+When we render our cards =>
+   we also render the "add to watchlist" button
+   *Give it a data-attribute: data-id: # or imdbID
+
+document.addEventListener so when anything clicks on the screen
+   check if it has a dataset of data-id:
+      IF if does EITHER:
+         ADD {
+            title: id (has to be unique imdbID bcz we need to see if it's in there already too)
+            body: Object (where do we get this?)
+         }
+
+         REMOVE
+
+So that when we render our watchlist...
+   we can just use the object we get back
+   INSTEAD of fetching for the data again AND creating a new instance of that data
+
+^ NOPE DOESNT WORK, button has not been rendered yet
+
+
+WHAT DO WE NEED TO POST=> {id, object}
+we are 
+1. getting ALL the Search
+2. createing all the Object
+   2.1 give each button an imdbID
+3. RENDING all the OBJECTS
+
+4. listening for the object's HTML buttons
+   4.1 CLICKED we have button=imdbID
+      this tells us which movie
+      - we could fetch again or
+      - look for the object (how?)
+         - Solution: keep a global array of object
+         - ELSE: we need to change our code structure where instead of fetching all the objects, then instantianing all the objects, then rending all the objects at once.
+            we would have to fetch, instantiate, render, give eventListener ONE by ONE (WHICH DOESNT SEEM LIKE A GOOD IDEA, lot of nesting)

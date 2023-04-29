@@ -5,6 +5,7 @@ import { renderMovieCards } from "./utils.js";
 const apiKey = "e77d9300";
 const emptyMessageEl = document.getElementById("empty-message");
 const searchGridContainerEl = document.getElementById("search-grid-container");
+let movieObjList = [];
 
 document.getElementById("search-btn").addEventListener("click", getSearchBar);
 
@@ -17,13 +18,15 @@ async function getSearchBar(e) {
 			`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInputEl.value}`
 		);
 		const data = await res.json();
-		console.log(data); //{Search: Array(5), totalResults: '5', Response: 'True'}
+		//console.log(data); {Search: Array(5), totalResults: '5', Response: 'True'}
 
 		if (data.Response === "True") {
 			emptyMessageEl.style.opacity = 0;
 			// Let the promise resolve first before rendering
-			const movieObjList = await getMovieList(data.Search);
+			movieObjList = await getMovieList(data.Search);
 			renderMovieCards(movieObjList, searchGridContainerEl);
+			// listen for button after rendering
+			addToWatchlist();
 		} else {
 			console.log("ERROR response too many results");
 			emptyMessageEl.innerHTML = `
@@ -50,4 +53,38 @@ async function getMovieList(searchList) {
 		})
 	);
 	return movieObjList;
+}
+
+// listens for watchlist button, adds the corresponding movie to the database/storage for now
+function addToWatchlist() {
+	document.addEventListener("click", (e) => {
+		// if it has a data attribute (a button)
+		if (e.target.dataset.id) {
+			const movieObj = movieObjList.filter((movie) => {
+				return e.target.dataset.id === movie.imdbID;
+			})[0];
+
+			if (e.target.id === "add") {
+				// send to local storage
+				if (localStorage.getItem(movieObj.imdbID)) {
+					console.log(`${movieObj.Title} Already in watchlist`);
+				} else {
+					localStorage.setItem(`${movieObj.imdbID}`, JSON.stringify(movieObj));
+					console.log(`${movieObj.Title} is added to watchlist`);
+				}
+
+				// if it's clicked no matter what we shoould have an option to remove
+				e.target.setAttribute("id", "remove");
+				e.target.innerHTML = `<i class="fa-solid fa-circle-minus"></i> Remove`;
+			}
+			// else if (e.target.id === "remove") {
+			else {
+				// remove from local storage
+				localStorage.removeItem(`${movieObj.imdbID}`);
+				console.log(`${movieObj.Title} has been removed`);
+				e.target.setAttribute("id", "add");
+				e.target.innerHTML = `<i class="fa-solid fa-folder-plus"></i> Watchlist`;
+			}
+		}
+	});
 }

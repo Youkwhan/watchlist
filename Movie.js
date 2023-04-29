@@ -5,7 +5,7 @@ class Movie {
 
 	// :str, card HTML in string template
 	getMovieCardHTML() {
-		const { Poster, Title, imdbRating, Director, Year, Genre, Runtime, Plot } =
+		const { Poster, Title, imdbRating, Director, Year, Genre, Runtime, Plot, imdbID } =
 			this;
 		return `
          <div class="card">
@@ -30,7 +30,7 @@ class Movie {
                      <p>${Runtime}</p>
                   </div>
                   <div class="card__details__props--group3">
-                     <button class="btn add-watchlist">
+                     <button id="add" class="btn add-watchlist" data-id=${imdbID}>
                         <i class="fa-solid fa-folder-plus"></i> Watchlist
                      </button>
                   </div>
@@ -43,7 +43,7 @@ class Movie {
       `;
 	}
 
-   
+
 }
 
 export default Movie;
