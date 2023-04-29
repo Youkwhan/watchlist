@@ -10,7 +10,7 @@ class Movie {
 		return `
          <div class="card">
             <div class="card__poster">
-               <img src=${Poster} />
+               <img src=${Poster} alt="poster-image"/>
             </div>
             <div class="card__details">
                <div class="card__details__header">

@@ -180,14 +180,21 @@ main {
 }
 
 .card {
+	display: grid;
+
 	/* min, max allows us to grow as grid grows to fill up the space, but limit how small ;) */
-	min-width: 20rem;
+	/* min-width: 20rem; */
 	max-width: 25rem;
 
 	border-radius: 20px;
 	box-shadow: 0 5px 10px -2px yellowgreen;
 	overflow: hidden;
 	transition: transform 500ms ease;
+}
+
+.card > * {
+	grid-column: 1/2;
+	grid-row: 1/2;
 }
 
 .card__poster img {
@@ -198,7 +205,8 @@ main {
 
 .card:hover .card__poster img,
 .card:focus-within .card__poster img {
-	transform: translateY(-30px);
+	transform: scale(1.05);
+	/* transform: translateY(-30px); */
 	/* filter: blur(2px); */
 }
 .card:hover,
@@ -210,12 +218,13 @@ main {
 .card__details {
 	background: linear-gradient(
 		hsl(0 0% 0% / 0),
-		hsl(20 0% 0% / 0.3) 20%,
+		hsl(20 0% 0% / 0.3) 15%,
 		hsl(0 0% 0% / 1)
 	);
 
 	--padding: 1.5rem;
 	padding: var(--padding);
+	align-self: end;
 }
 
 .card__details__header {
@@ -224,54 +233,25 @@ main {
 	width: 100%;
 }
 
-/* we use ::after bcz we want to position it down? But it starts below originally, NO bcz we use grid to put it on top remember so we push down( wait no we are using absolute, so might have to change to grid 1/1, lets see */
+/* we use ::after to undline and split the section*/
 .card__details__header::after {
 	content: "";
 	position: absolute;
+
+	width: calc(100% + var(--padding));
+	height: 4px;
+	left: calc(var(--padding) * -1);
+	bottom: -2px;
+
+	background-color: yellowgreen;
+	transition: transform 500ms ease;
+	transform-origin: left;
 }
 
-/* 
-.card__poster {
-	position: relative;
+.card:hover .card__details__header::after,
+.card:focus-within .card__details__header::after {
+	transform: scaleX(1);
 }
-
-.card__poster::before {
-	content: "";
-	position: absolute;
-	bottom: -11.25em;
-
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(0deg, var(--clr-secondary) 50%, transparent);
-	transition: 0.5s;
-	z-index: 1;
-} */
-
-/* When card hovered, bring up card-poster::before (bg-shdaow) back up to original position */
-/* .card:hover .card__poster::before {
-	bottom: 0px;
-} */
-
-/* .card:hover .card__poster img {
-	transform: translateY(-50px);
-	filter: blur(5px);
-} */
-
-/* Default where card details should be position (which part hidden/showing) */
-/* .card__details {
-	position: absolute;
-	width: 100%;
-	bottom: -80px;
-	left: 0;
-	padding: 20px;
-	z-index: 2;
-	transition: 0.5s;
-} */
-
-/* When card hovered, bring up details, bottom:0 bcz we want to show entire div */
-/* .card:hover .card__details {
-	bottom: 0px;
-} */
 
 /* card details */
 
@@ -314,6 +294,38 @@ main {
 
 .card__details__plot {
 	margin-top: 20px;
+}
+
+@media (hover) {
+	.card__details {
+		transform: translateY(60%);
+		transition: transform 500ms ease;
+	}
+
+	.card:hover .card__details,
+	.card:focus-within .card__details {
+		transform: translateY(0);
+		transition-delay: 500ms;
+	}
+
+	.card:focus-within .card__details {
+		transition-duration: 0ms;
+	}
+
+	.card__details > *:not(.card__details__header) {
+		opacity: 0;
+		transition: opacity 500ms linear;
+	}
+
+	.card:hover .card__details > *:not(.card__details__header),
+	.card:focus-within .card__details > *:not(.card__details__header) {
+		opacity: 1;
+		transition-delay: 800ms;
+	}
+
+	.card__details__header::after {
+		transform: scaleX(0);
+	}
 }
 
 /* Empty messages */
