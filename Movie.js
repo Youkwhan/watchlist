@@ -1,12 +1,37 @@
 class Movie {
 	constructor(data) {
 		Object.assign(this, data);
+		this.added = false;
+	}
+
+	getEmptyMessageHTML() {
+		const { added, imdbID } = this;
+
+		if (added) {
+			// remove button
+			return `
+            <i class="fa-solid fa-circle-minus"></i> Remove`;
+		} else {
+			// add button
+			return `
+            <i class="fa-solid fa-folder-plus"></i> Watchlist`;
+		}
 	}
 
 	// :str, card HTML in string template
 	getMovieCardHTML() {
-		const { Poster, Title, imdbRating, Director, Year, Genre, Runtime, Plot, imdbID } =
-			this;
+		const {
+			Poster,
+			Title,
+			imdbRating,
+			Director,
+			Year,
+			Genre,
+			Runtime,
+			Plot,
+			imdbID,
+		} = this;
+		const emptyMessageHTML = this.getEmptyMessageHTML();
 		return `
          <div class="card">
             <div class="card__poster">
@@ -31,7 +56,7 @@ class Movie {
                   </div>
                   <div class="card__details__props--group3">
                      <button id="add" class="btn add-watchlist" data-id=${imdbID}>
-                        <i class="fa-solid fa-folder-plus"></i> Watchlist
+                        ${emptyMessageHTML}
                      </button>
                   </div>
                </div>
@@ -42,8 +67,6 @@ class Movie {
          </div>
       `;
 	}
-
-
 }
 
 export default Movie;
