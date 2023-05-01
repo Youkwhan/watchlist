@@ -44,6 +44,9 @@ In the search page, I faced an issue where multiple event listeners were being a
 
 I also faced difficulties getting my CSS hover effects to work properly. I utilized grid to stack the image and card-content on top of each other, then used align-self: end to push the content to the bottom. I also used @media (hover) to have non-sticky hover effects, and used translate to move the card-content down before bringing it back to its original position on hover. Additionally, I added an opacity delay animation to enhance the user experience.
 
+## Improvements
+- The Add/remove watchlist ICON buttons should be interactable not just the text.
+- On mobile devices hover functions interfere with user interaction.
 
 ## Credits
 - Design inspired by [Evie Bauland](https://dribbble.com/EvieBauland)
