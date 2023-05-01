@@ -7,7 +7,7 @@
 	--clr-primary: #fff;
 	--clr-secondary: #272831;
 	--clr-nav-gold: #f7da59;
-	--clr-text-gray: #818087;
+	--clr-text-gray: #5e5c64;
 	--clr-text-accent: #d3af37;
 	--clr-line: #272831;
 
@@ -78,6 +78,7 @@ a {
 h1 {
 	font-weight: var(--fw-large);
 	font-size: var(--fs-large);
+	color: var(--clr-secondary);
 }
 
 h2 {
@@ -165,8 +166,13 @@ header {
 	justify-content: space-between;
 	align-items: flex-end;
 	border-bottom: 3px solid var(--clr-line);
-	padding-top: 3em;
-	padding-bottom: 0.5em;
+	padding: 3em 1em 0.5em;
+
+	background-image: url("../image/water-hatsune-miku.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	border-radius: 20px;
 }
 
 /* cards */
@@ -279,12 +285,16 @@ main {
 
 	display: flex;
 	justify-content: space-between;
+	font-size: 1.2em;
+	text-shadow: 0px 4px 4px #282828;
 }
 
 .card__details__props--group1 > *,
 .card__details__props--group2 > *,
 .card__details__props--group3 > * {
 	display: inline-block;
+	color: var(--clr-text-accent);
+
 }
 
 .add-watchlist {
