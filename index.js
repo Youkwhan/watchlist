@@ -10,7 +10,6 @@ const movieObjList = [];
 render();
 
 function render() {
-	console.log(localStorage.length);
 	if (localStorage.length != 0) {
 		// remove empty msg
 		emptyMessageEl.style.opacity = 0;

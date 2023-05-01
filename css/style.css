@@ -155,8 +155,7 @@ nav a:focus {
 }
 
 .content-container {
-	padding-left: 1em;
-	padding-right: 1em;
+	padding: 1em;
 }
 
 /* Header */

@@ -34,3 +34,12 @@ we are
          - Solution: keep a global array of object
          - ELSE: we need to change our code structure where instead of fetching all the objects, then instantianing all the objects, then rending all the objects at once.
             we would have to fetch, instantiate, render, give eventListener ONE by ONE (WHICH DOESNT SEEM LIKE A GOOD IDEA, lot of nesting)
+
+
+
+extra:
+header padding between navbar
+
+add/remove button icon is not interactive
+
+mobile vertsion hover effects 
