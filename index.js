@@ -54,7 +54,9 @@ function removeFromWatchlist() {
 			if (localStorage.getItem(movieObj.imdbID)) {
 				console.log(`${movieObj.Title} is removed`);
 				localStorage.removeItem(movieObj.imdbID);
-				render();
+				// render();
+				const closestCardEl = e.target.closest(".card");
+				closestCardEl.remove();
 			}
 		}
 	});

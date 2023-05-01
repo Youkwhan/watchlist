@@ -64,6 +64,8 @@ function addToWatchlist() {
 				return e.target.dataset.id === movie.imdbID;
 			})[0];
 
+			let sign = "";
+
 			if (e.target.id === "add") {
 				// send to local storage
 				if (localStorage.getItem(movieObj.imdbID)) {
@@ -72,19 +74,28 @@ function addToWatchlist() {
 					localStorage.setItem(`${movieObj.imdbID}`, JSON.stringify(movieObj));
 					console.log(`${movieObj.Title} is added to watchlist`);
 				}
-
-				// if it's clicked no matter what we shoould have an option to remove
-				e.target.setAttribute("id", "remove");
-				e.target.innerHTML = `<i class="fa-solid fa-circle-minus"></i> Remove`;
+				sign = "add";
 			}
-			// else if (e.target.id === "remove") {
-			else {
+
+			if (e.target.id === "remove") {
 				// remove from local storage
 				localStorage.removeItem(`${movieObj.imdbID}`);
 				console.log(`${movieObj.Title} has been removed`);
-				e.target.setAttribute("id", "add");
-				e.target.innerHTML = `<i class="fa-solid fa-folder-plus"></i> Watchlist`;
+				sign = "remove";
 			}
+
+			handleButtonChange(sign);
 		}
 	});
+}
+
+function handleButtonChange(prop) {
+	if (prop === "add") {
+		e.target.setAttribute("id", "remove");
+		e.target.innerHTML = `<i class="fa-solid fa-circle-minus"></i> Remove`;
+	}
+	if (prop === "remove") {
+		e.target.setAttribute("id", "add");
+		e.target.innerHTML = `<i class="fa-solid fa-folder-plus"></i> Watchlist`;
+	}
 }
