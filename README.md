@@ -32,6 +32,19 @@ The challenge consisted of:
 
 ## Approach
 
+The motivation behind developing this project was to create a centralized location for tracking all the TV shows that I am currently watching. I initially tried using a website's built-in bookmarking feature, but it proved to be unreliable. This led me to develop my own application.
+
+During the development process, my primary focus was on enhancing my skills in working with API methods such as GET and POST. Additionally, I utilized class-based components to improve the overall organization of the project.
+
+One of the major challenges I encountered while developing this project was implementing the "remove from watchlist" functionality. I needed a way to associate each button with its corresponding card, and I solved this problem by using data attributes.
+
+Another challenge was removing a card from both the DOM and local storage simultaneously. I wanted to avoid inefficient solutions like rerendering the entire page or fetching new data. Ultimately, I used the built-in remove() method available on all DOM elements to remove the card from its parent element and the document tree.
+
+In the search page, I faced an issue where multiple event listeners were being attached to the document whenever I searched for multiple titles. To fix this, I removed any existing event listeners before adding new ones to ensure that there was only one event listener registered at a time per card.
+
+I also faced difficulties getting my CSS hover effects to work properly. I utilized grid to stack the image and card-content on top of each other, then used align-self: end to push the content to the bottom. I also used @media (hover) to have non-sticky hover effects, and used translate to move the card-content down before bringing it back to its original position on hover. Additionally, I added an opacity delay animation to enhance the user experience.
+
+
 ## Credits
 - Design inspired by [Evie Bauland](https://dribbble.com/EvieBauland)
 
