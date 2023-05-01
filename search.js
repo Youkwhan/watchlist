@@ -15,7 +15,7 @@ async function getSearchBar(e) {
 	const searchInputEl = document.getElementById("search-area");
 	if (searchInputEl.value) {
 		const res = await fetch(
-			`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInputEl.value}`
+			`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchInputEl.value}`
 		);
 		const data = await res.json();
 		//console.log(data); {Search: Array(5), totalResults: '5', Response: 'True'}
@@ -46,7 +46,7 @@ async function getMovieList(searchList) {
 	const movieObjList = await Promise.all(
 		searchList.map(async (movie) => {
 			const res = await fetch(
-				`http://www.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`
+				`https://www.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`
 			);
 			const data = await res.json();
 			return new Movie(data);
