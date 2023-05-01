@@ -57,39 +57,41 @@ async function getMovieList(searchList) {
 
 // listens for watchlist button, adds the corresponding movie to the database/storage for now
 function addToWatchlist() {
-	document.addEventListener("click", (e) => {
-		// if it has a data attribute (a button)
-		if (e.target.dataset.id) {
-			const movieObj = movieObjList.filter((movie) => {
-				return e.target.dataset.id === movie.imdbID;
-			})[0];
-
-			let sign = "";
-
-			if (e.target.id === "add") {
-				// send to local storage
-				if (localStorage.getItem(movieObj.imdbID)) {
-					console.log(`${movieObj.Title} Already in watchlist`);
-				} else {
-					localStorage.setItem(`${movieObj.imdbID}`, JSON.stringify(movieObj));
-					console.log(`${movieObj.Title} is added to watchlist`);
-				}
-				sign = "add";
-			}
-
-			if (e.target.id === "remove") {
-				// remove from local storage
-				localStorage.removeItem(`${movieObj.imdbID}`);
-				console.log(`${movieObj.Title} has been removed`);
-				sign = "remove";
-			}
-
-			handleButtonChange(sign);
-		}
-	});
+	document.removeEventListener("click", handleWatchlistClick);
+	document.addEventListener("click", handleWatchlistClick);
 }
 
-function handleButtonChange(prop) {
+function handleWatchlistClick(e){
+	// if it has a data attribute (a button)
+	if (e.target.dataset.id) {
+		const movieObj = movieObjList.filter((movie) => {
+			return e.target.dataset.id === movie.imdbID;
+		})[0];
+
+		let sign = "";
+
+		if (e.target.id === "add") {
+			// send to local storage
+			if (localStorage.getItem(movieObj.imdbID)) {
+				console.log(`${movieObj.Title} Already in watchlist`);
+			} else {
+				localStorage.setItem(`${movieObj.imdbID}`, JSON.stringify(movieObj));
+				console.log(`${movieObj.Title} is added to watchlist`);
+			}
+			sign = "add";
+		}
+
+		if (e.target.id === "remove") {
+			// remove from local storage
+			localStorage.removeItem(`${movieObj.imdbID}`);
+			console.log(`${movieObj.Title} has been removed`);
+			sign = "remove";
+		}
+
+		handleButtonChange(sign, e);
+	}
+}
+function handleButtonChange(prop, e) {
 	if (prop === "add") {
 		e.target.setAttribute("id", "remove");
 		e.target.innerHTML = `<i class="fa-solid fa-circle-minus"></i> Remove`;

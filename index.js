@@ -19,10 +19,6 @@ function render() {
 		getLocalStorage();
 		renderMovieCards(movieObjList, watchlistGridContainerEl);
 		removeFromWatchlist();
-	} else {
-		// when remove last item in wathclist, rerender
-		emptyMessageEl.style.opacity = 1;
-		watchlistGridContainerEl.innerHTML = "";
 	}
 }
 
@@ -57,6 +53,11 @@ function removeFromWatchlist() {
 				// render();
 				const closestCardEl = e.target.closest(".card");
 				closestCardEl.remove();
+
+				if (localStorage.length === 0) {
+					// when remove last item in wathclist, rerender
+					emptyMessageEl.style.opacity = 1;
+				}
 			}
 		}
 	});
