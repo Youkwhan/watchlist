@@ -51,6 +51,7 @@ I also faced difficulties getting my CSS hover effects to work properly. I utili
 ## Improvements
 - The Add/remove watchlist ICON buttons should be interactable not just the text.
 - On mobile devices hover functions interfere with user interaction.
+- Use a real database instead of localStorage. That way we can utlize the full capabilities of REST methods and Client & Server separation.
 
 ## Credits
 - Design inspired by [Evie Bauland](https://dribbble.com/EvieBauland)
