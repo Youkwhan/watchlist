@@ -24,6 +24,10 @@ The challenge consisted of:
 
 ## Demo Video
 
+
+https://user-images.githubusercontent.com/37788922/235553659-57fd07e0-c59c-4373-8174-d20d6dec2fe7.mp4
+
+
 ## Setup
 - download or clone the repository
 - visit the site [Demo link](#demo-link)
@@ -47,6 +51,7 @@ I also faced difficulties getting my CSS hover effects to work properly. I utili
 ## Improvements
 - The Add/remove watchlist ICON buttons should be interactable not just the text.
 - On mobile devices hover functions interfere with user interaction.
+- Use a real database instead of localStorage. That way we can utlize the full capabilities of REST methods and Client & Server separation.
 
 ## Credits
 - Design inspired by [Evie Bauland](https://dribbble.com/EvieBauland)
