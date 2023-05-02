@@ -177,10 +177,13 @@ header {
 /* cards */
 main {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 	gap: 2rem;
 
 	justify-items: center;
+
+	padding-left: 2em;
+	padding-right: 2em;
 }
 
 .card {
@@ -188,7 +191,7 @@ main {
 
 	/* min, max allows us to grow as grid grows to fill up the space, but limit how small ;) */
 	/* min-width: 20rem; */
-	max-width: 25rem;
+	max-width: 22rem;
 
 	border-radius: 20px;
 	box-shadow: 0 5px 10px -2px yellowgreen;
