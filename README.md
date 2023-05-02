@@ -24,6 +24,10 @@ The challenge consisted of:
 
 ## Demo Video
 
+
+https://user-images.githubusercontent.com/37788922/235553659-57fd07e0-c59c-4373-8174-d20d6dec2fe7.mp4
+
+
 ## Setup
 - download or clone the repository
 - visit the site [Demo link](#demo-link)
