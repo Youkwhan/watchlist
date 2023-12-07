@@ -1,11 +1,11 @@
-# Movie-Watchlist
+# Movie-Valut
 Bookmark all your favorite movies in one place
 
 ## Demo link
 Access my site at [https://watchlist-bookmark.netlify.app/](https://watchlist-bookmark.netlify.app/)
 
 ## Overview
-Movie Watchlist is a website that allows users to keep track and add movies, TV shows, and more to their own personalized watchlist and remove them when as you finish. It uses the Open Movie Database (OMDb) API to fetch movie data by title, name, and id.
+Movie Valut is a website that allows users to keep track and add movies, TV shows, and more to their own personalized watchlist and remove them when as you finish. It uses the Open Movie Database (OMDb) API to fetch movie data by title, name, and id.
 
 ### Features:
 The challenge consisted of:
